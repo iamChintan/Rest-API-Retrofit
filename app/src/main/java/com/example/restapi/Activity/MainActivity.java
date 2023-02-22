@@ -7,9 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.graphics.Movie;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.example.restapi.Adapter.MoviesAdapter;
 import com.example.restapi.Interface.IMovieApiService;
+import com.example.restapi.Interface.IOnClickItem;
 import com.example.restapi.Model.Result;
 import com.example.restapi.Model.Root;
 import com.example.restapi.R;
@@ -60,7 +62,12 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<Root> call, Response<Root> response) {
                 List<Result> results = response.body().getResults();
                 Log.e(TAG, "onResponse: "  + results );
-                recyclerView.setAdapter( new MoviesAdapter(results, getApplicationContext()));
+                recyclerView.setAdapter( new MoviesAdapter(results, getApplicationContext(), new IOnClickItem() {
+                    @Override
+                    public void onClickItem(int position) {
+                        Toast.makeText(MainActivity.this, "Movie is : " + results.get(position).getTitle() + " and rate is " + String.valueOf(results.get(position).getVote_average()), Toast.LENGTH_SHORT).show();
+                    }
+                }));
             }
 
             @Override
