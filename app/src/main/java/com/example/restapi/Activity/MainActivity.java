@@ -1,8 +1,10 @@
-package com.example.restapi;
+package com.example.restapi.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.restapi.R;
 
 public class MainActivity extends AppCompatActivity {
 
