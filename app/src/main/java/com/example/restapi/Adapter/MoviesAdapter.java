@@ -42,8 +42,9 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
         Glide.with(context)
                         .load(image_url)
-                                .placeholder(android.R.drawable.sym_def_app_icon)
-                                        .into(holder.movieImage);
+                        .placeholder(android.R.drawable.sym_def_app_icon)
+                        .error(android.R.drawable.sym_def_app_icon)
+                        .into(holder.movieImage);
 
         holder.movieTitle.setText(results.get(position).getTitle());
         holder.data.setText(results.get(position).getRelease_date());
@@ -66,7 +67,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
         TextView movieDescription;
         TextView rating;
         ImageView movieImage;
-        String IMAGE_URL_BASE_PATH = "http://image.tmdb.org/t/p/w342//";
+        String IMAGE_URL_BASE_PATH = "https://image.tmdb.org/t/p/w342//";
 
         public ViewHolder(@NonNull View v) {
             super(v);

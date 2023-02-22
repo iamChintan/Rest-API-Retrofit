@@ -1,5 +1,6 @@
 package com.example.restapi.Interface;
 
+import com.example.restapi.Model.Result;
 import com.example.restapi.Model.Root;
 
 import retrofit2.Call;

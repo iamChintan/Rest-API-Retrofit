@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Root> call, Response<Root> response) {
                 List<Result> results = response.body().getResults();
+                Log.e(TAG, "onResponse: "  + results );
                 recyclerView.setAdapter( new MoviesAdapter(results, getApplicationContext()));
             }
 
